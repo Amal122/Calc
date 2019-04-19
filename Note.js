@@ -86,6 +86,7 @@ class NotePad extends Component {
                   
             </KeyboardAwareScrollView> 
             </DismissKeyboard>   
+            <View style={styles.addNote}>
                   <TouchableOpacity onPress={this.addData.bind(this)} onclick="document.write(5 + 6)" style={styles.addButton} >
                       <Text style={{fontWeight:"100",fontSize:40,color:"white"}}>+</Text>
                   </TouchableOpacity> 
@@ -100,6 +101,7 @@ class NotePad extends Component {
                   >
                     
                   </TextInput>
+                  </View>
             </View>  
                 
         )  
@@ -108,12 +110,17 @@ class NotePad extends Component {
 const styles = StyleSheet.create({
   container: {
     flex:1,
-    marginBottom:150,
+    // marginBottom:150,
+  },
+  addNote: {
+position:"relative",
+bottom:50,
   },
   addButton: {
      position: "absolute",
     zIndex: 200,
-     marginTop: 540,
+    bottom:50,
+    //  marginTop: height-10,
     backgroundColor: "#368A73",
     width: 50,
     height: 50,
@@ -127,7 +134,8 @@ const styles = StyleSheet.create({
   text: {
      position:"absolute",
     color: "red",
-     marginTop:540,
+    bottom:50,
+    //  marginTop:height-10,
     paddingRight:20,
     width:width-70,
     borderRadius:20,
