@@ -7,6 +7,7 @@ import ReactNative, {
   TouchableOpacity
 } from "react-native";
 import Note from './Paper';
+import NotePad from './Note';
 
 export default class App extends React.Component {
    
@@ -138,7 +139,9 @@ export default class App extends React.Component {
         }
 
       }
-      
+      Copy(copy){
+        this.state.result=NotePad
+      }
       
 
   render() {
@@ -169,12 +172,15 @@ export default class App extends React.Component {
           onPress={() => this.operate(this.Operations[i])}
           onLongPress={() => this.Delete(this.Operations[i])}
         >
+        
           <Text style={[styles.operations,styles.white]}>
             {this.Operations[i]}
           </Text>
+          
         </TouchableOpacity>
         
       );
+      
     }
 
     return (
@@ -182,10 +188,19 @@ export default class App extends React.Component {
         <View style={styles.result}>
         
           <Text style={styles.resultText}>{this.state.resultText}</Text>
-          <Text style={{}}>Copy</Text>
+          
         </View>
+        
+       
+        
         <View style={styles.calcultion}>
+        <TouchableOpacity
+        onPress={() =>this.Copy(copy)}>
+        <Text style={{fontSize:40,color:"white",position:"absolute",marginTop:-140,marginLeft:100}}>Copy</Text>
+        </TouchableOpacity>
           <Text style={styles.calculationText}>{this.state.calculationText}</Text>
+          
+          
         </View>
         <View style={styles.buttons}>
           <View style={styles.numbers}>{rows}</View>
@@ -194,8 +209,9 @@ export default class App extends React.Component {
           
             
           </View>
-           
+          
         </View>
+        
         <Note/>         
       </View>
 
@@ -254,7 +270,8 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     fontSize: 30,
-    color:"white"
+    color:"white",
+
   },
   calculationText: {
     flexDirection: "row",
