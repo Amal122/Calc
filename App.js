@@ -194,10 +194,10 @@ export default class App extends React.Component {
        
         
         <View style={styles.calcultion}>
-        <TouchableOpacity
+        {/* <TouchableOpacity
         onPress={() =>this.Copy(copy)}>
         <Text style={{fontSize:40,color:"white",position:"absolute",marginTop:-140,marginLeft:100}}>Copy</Text>
-        </TouchableOpacity>
+        </TouchableOpacity> */}
           <Text style={styles.calculationText}>{this.state.calculationText}</Text>
           
           
